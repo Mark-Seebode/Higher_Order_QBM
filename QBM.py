@@ -40,7 +40,6 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 from copy import copy
 from sklearn.metrics import accuracy_score
-from datasets import * 
 
 
 class QBM:
@@ -711,7 +710,7 @@ class QBM:
                 errors = self.update_weights(x_batch, y_batch, learning_rate)
                 errors_epoch.append(np.linalg.norm(errors))
 
-                if self.gqevt_refresh_mode == 'threshold':
+                if self.gqevt_refresh_mode == 'threshold' and self.gqevt.sim_level == 2:
                     self.H_norm = np.linalg.norm(self.weights)
                     if self.H_norm <= self.h_norm_trigger:
                         continue
