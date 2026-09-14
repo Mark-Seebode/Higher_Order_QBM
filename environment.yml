@@ -1,0 +1,19 @@
+name: qbm-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - matplotlib
+  - scikit-learn
+  - ipython
+  - tqdm
+  - pip
+  - wandb
+  - pip:
+      - pennylane>=0.41
+      - pyqsp>=0.2.0
+      - torch>=2.0
+      - torchaudio
