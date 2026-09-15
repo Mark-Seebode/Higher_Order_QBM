@@ -46,7 +46,6 @@ conda env create -f environment.yml
 conda activate qbm-env
 ```
 
-The equivalent Python dependencies are listed in `requirements.txt`.
 
 ## Running a Single Experiment
 
