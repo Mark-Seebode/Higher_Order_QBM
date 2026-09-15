@@ -104,7 +104,7 @@ The current single-experiment setup uses:
 - `sim_level = 1`: builds an explicit matrix representation of the GQSP
   sequence and applies it as one unitary.
 - `sim_level = 2`: constructs the GQSP circuit from rotations, controlled
-  block-encodings, and reflections. Avoids nested optimization loop by defining a threshold when GQSP angles should be recalculated. Needs small learning rates to avoid reinitializing GQSP
+  block-encodings, and reflections. Avoids nested optimization loop by defining a threshold when GQSP angles should be recalculated. Needs small learning rates to avoid reinitializing GQSP for every data sample
 
 
 ## Data Flow
@@ -163,9 +163,4 @@ By default, results are saved under `Results/`:
 
 Use `--path` to choose another output directory.
 
-## Notes for New Contributors
-
-- Start with `python main.py --epochs 1` to verify the environment.
-- Use `sim_level = 0` ideal simulation of GQEVT.
-- Use `sim_level = 2` actual circuit implementation with avoiding nested loop mechanic. Use small learning rate in order to avoid reinitiating GQSP for every data sample
 
