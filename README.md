@@ -1,4 +1,4 @@
-# GQSP_QBM
+# Higher Order QBM with GQSP
 
 This repository contains experimental code for discriminative higher-order
 Quantum Boltzmann Machines (QBMs) trained with Gibbs-state estimates from
