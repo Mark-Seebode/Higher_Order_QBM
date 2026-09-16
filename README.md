@@ -1,7 +1,7 @@
 # Higher Order QBM with GQSP
 
-This repository contains experimental code for discriminative higher-order
-Quantum Boltzmann Machines (QBMs) trained with Gibbs-state estimates from
+This repository contains experimental code for discriminative Higher-Order
+Quantum Boltzmann Machines (HOQBMs) trained with Gibbs-state estimates from
 Generalized Quantum Eigenvalue Transformation (GQEVT). The implementation is
 intended to support the experiments described in the accompanying paper on
 higher-order QBMs with GQSP/GQEVT-based Gibbs-state preparation.
@@ -13,6 +13,8 @@ The central training idea is:
 3. Estimate expectation values under both Gibbs states.
 4. Update the trainable Hamiltonian parameters from the difference between the
    clamped and unclamped expectations.
+
+This code was built on top of the work available at https://github.com/shivang-arora/GQSP_QBM
 
 ## Repository Structure
 
@@ -139,19 +141,17 @@ python main.py --track_nll
 
 ## Relation to the Paper
 
-The code follows the paper's description of a Higher-Order Quantum Boltzmann Machines (HOQBMs):
-visible units encode inputs and labels, hidden units represent latent degrees of
-freedom, and the Hamiltonian may include higher-order Pauli interactions such as
-`ZZZ`.
+The code follows the paper's description of HOQBMs:
+Units are represented by qubits with higher-order Pauli interactions such as
+`ZZZ`. The interactions include clamped visible units as part of the k-body interactions.
 
 The GQEVT component follows the paper's idea of approximating Gibbs-state
 preparation by applying a polynomial transformation to a block-encoded
-Hamiltonian without adding a nested optimization loop. In the notation of the paper, GQSP implements a transformation of
+Hamiltonian without adding a nested optimization loop. In the notation of the paper, GQEVT implements a transformation of
 the normalized Hamiltonian, written as approximately `p(H / alpha)`, where
 `alpha` is a block-encoding normalization. For a Gibbs operator, the polynomial
 must be chosen so that this approximates the desired imaginary-time evolution,
-for example `exp(-beta H)` or `exp(-beta H / 2)`, depending on the convention
-used in the experiment.
+for example `exp(-beta H)`.
 
 ## Outputs
 
@@ -161,5 +161,6 @@ By default, results are saved under `Results/`:
 - `weights_seed<seed>.pkl`: final trained Hamiltonian weights.
 
 Use `--path` to choose another output directory.
+
 
 
